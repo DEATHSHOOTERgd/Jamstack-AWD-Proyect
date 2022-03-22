@@ -13,13 +13,15 @@ export default function useCars(){
     getCars();
     },[]);
     const Cars=(props)=>(
-            <div className=''>
+            <div className='col-9'>
+              <div className='row'>
                { cars.filter(car => car.attributes.car_type.data.id === props.carTypeId).map(car => (
-                <div className='col-3 car-container'>
+                <div className='col-3 car-container '>
                    <span className='car-name'>{car.attributes.name}</span>
-                   <img className='car-image' src={`https://autos-servidor.herokuapp.com${car.attributes.default_image.data.attributes.url}`}/>
+                   <img className='car-image' src={car.attributes.default_image.data.attributes.url}/>
                 </div>    
                ))}
+               </div>
             </div>
     )
     return {

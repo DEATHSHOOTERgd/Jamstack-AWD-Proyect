@@ -10,13 +10,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+* {margin:0;padding:0;box-sizing:border-box;}
 * {
   box-sizing: border-box;
 }
 .car-image{
   width: 100%;
-  height: 200px;
+  height: 190px;
 }
 .car-name{
   position: absolute;
@@ -51,4 +51,7 @@ span.car-type{
   border-width: 25px;
   border-style: solid;
   border-color:  transparent transparent transparent #00061a;
+}
+.col-3{
+  padding:0;
 }
