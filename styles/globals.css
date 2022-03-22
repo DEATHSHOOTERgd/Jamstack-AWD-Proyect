@@ -14,3 +14,41 @@ a {
 * {
   box-sizing: border-box;
 }
+.car-image{
+  width: 100%;
+  height: 200px;
+}
+.car-name{
+  position: absolute;
+  left:3rem;
+  top:1rem;
+  font-weight: bold;
+  font-size: 16pt;
+  color: azure;
+}
+.car-container{
+  position: relative;
+}
+div.car-type{
+  position: relative;
+  background-color: #00061a;
+}
+span.car-type{
+  display: block;
+  font-weight: bold;
+  font-size: 34pt;
+  color: azure;
+  margin-top: 3rem;
+}
+.arrow {
+  content: "";
+  position: absolute;
+  top: 40%;
+  right: -50px;
+  width: 0;
+  height: 0;
+  z-index: 2;
+  border-width: 25px;
+  border-style: solid;
+  border-color:  transparent transparent transparent #00061a;
+}
