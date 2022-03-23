@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
+import Link from 'next/link';
 
 
 export default function useCars(){
@@ -17,8 +18,12 @@ export default function useCars(){
               <div className='row'>
                { cars.filter(car => car.attributes.car_type.data.id === props.carTypeId).map(car => (
                 <div className='col-3 car-container '>
-                   <span className='car-name'>{car.attributes.name}</span>
-                   <img className='car-image' src={car.attributes.default_image.data.attributes.url}/>
+                  <Link href={`/customization?car=${car.id}`}>
+                    <a>
+                      <span className='car-name'>{car.attributes.name}</span>
+                      <img className='car-image' src={car.attributes.default_image.data.attributes.url}/>
+                    </a>
+                  </Link>
                 </div>    
                ))}
                </div>
