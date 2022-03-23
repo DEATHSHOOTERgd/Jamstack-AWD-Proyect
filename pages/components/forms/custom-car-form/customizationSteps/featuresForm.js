@@ -3,6 +3,6 @@ import useCarFeatures from "../../../../../hooks/useCarFeatures"
 export default function FeaturesForm(props){
     const {CarFeatures}=useCarFeatures();
     return(<div>
-            <CarFeatures></CarFeatures> 
+            <CarFeatures carId={props.carId}></CarFeatures> 
          </div>)
 }

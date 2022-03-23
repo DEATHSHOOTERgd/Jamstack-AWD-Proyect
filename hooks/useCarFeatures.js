@@ -14,8 +14,9 @@ export default function useCarFeatures(){
     },[]);
     const CarFeatures=(props)=>(
         <ul>
-            { carFeatures.filter(feature => feature.attributes.car.id === props.carId).map(feature => (
-                <li>{feature.attributes.description}</li> 
+            { 
+            	carFeatures.filter(feature => feature.attributes.car.data.id == props.carId).map(feature => (
+                <li>{feature.attributes.description+props.carId+feature.attributes.car.id}</li> 
                ))}
         </ul>
     )
