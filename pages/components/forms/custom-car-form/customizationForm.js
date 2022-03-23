@@ -3,11 +3,15 @@ import FeaturesForm from "./customizationSteps/featuresForm";
 import OutfitForm from "./customizationSteps/outfitForm";
 import PackForm from "./customizationSteps/packForm";
 import PowerForm from "./customizationSteps/powerForm";
+import { useEffect } from "react/cjs/react.production.min";
+import useCar from "../../../../hooks/useCar";
 
 
 export default function CustomizationForm(props) {
     const [step, setStep]=useState(0);
     const FormSteps=['ESPECIFICACIONES','POTENCIA','PAQUETES','ASPECTO'];
+    const {Car}=useCar(props.carId);
+   
     const DisplayStep=()=>{
         if(step===0)
             return <FeaturesForm carId={props.carId}/>;
@@ -19,12 +23,13 @@ export default function CustomizationForm(props) {
             return <OutfitForm carId={props.carId}/>;
     }
     return (
-      <div className="form">
-        <div className="form-container">
+      <div className="form row mt-3">
+        <Car carId={props.carId}></Car>
+        <div className="form-container col-6">
             <div className="form-header">
                 <h2>{FormSteps[step]}</h2>
             </div>
-            <div className="form-body">
+            <div className="form-body row">
                 {DisplayStep()}
             </div>
             <div className="form-footer">

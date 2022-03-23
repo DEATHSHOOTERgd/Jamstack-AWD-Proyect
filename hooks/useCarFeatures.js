@@ -5,7 +5,7 @@ export default function useCarFeatures(){
     const [carFeatures,setCarFeatures]=useState([]);
     useEffect(()=>{
     const getCarFeatures=async ()=>{
-      const requestUrl=`https://autos-servidor.herokuapp.com/api/features?populate=*`
+      const requestUrl=`https://autos-servidor.herokuapp.com/api/features?populate=*&pagination[start]=0&pagination[limit]=1000`
       const response=await axios.get(requestUrl);
       const features= response.data.data;
       setCarFeatures(features);
@@ -16,7 +16,7 @@ export default function useCarFeatures(){
         <ul>
             { 
             	carFeatures.filter(feature => feature.attributes.car.data.id == props.carId).map(feature => (
-                <li>{feature.attributes.description+props.carId+feature.attributes.car.id}</li> 
+                <li>{feature.attributes.description}</li> 
                ))}
         </ul>
     )
