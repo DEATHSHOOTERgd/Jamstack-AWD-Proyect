@@ -16,9 +16,12 @@ export default function useCar(carId){
     }, []);
     const Car=(props)=>{
             return (
-                <div className="col-6 justify-content-center ">
+                <div className="col-6">
                     {cars.filter(car => car.id == props.carId).map(car => (
-                    <img className="ml-5" src={car.attributes.default_image.data.attributes.url}/>
+                    <div className="row d-flex justify-content-center">
+                        <h3 className="text-center">{car.attributes.name}</h3>
+                        <img className="ml-5 col-10" src={car.attributes.default_image.data.attributes.url}/>
+                    </div>
                     ))
                     }
                 </div>

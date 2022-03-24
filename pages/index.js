@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import Header from './shared/header'
 import useCarTypes from '../hooks/useCarTypes'
-import CustomizationForm from './components/forms/custom-car-form/customizationForm'
 
 export default function Home() {
   const [carTypes,setCarTypes]=useState([]);
