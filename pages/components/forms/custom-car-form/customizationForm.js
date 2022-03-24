@@ -3,13 +3,13 @@ import FeaturesForm from "./customizationSteps/featuresForm";
 import OutfitForm from "./customizationSteps/outfitForm";
 import PackForm from "./customizationSteps/packForm";
 import PowerForm from "./customizationSteps/powerForm";
-import { useEffect } from "react/cjs/react.production.min";
 import useCar from "../../../../hooks/useCar";
+import FormHeader from "./customizationSteps/formHeader";
 
 
 export default function CustomizationForm(props) {
     const [step, setStep]=useState(0);
-    const FormSteps=['ESPECIFICACIONES','POTENCIA','PAQUETES','ASPECTO'];
+    const [FormSteps,setFormSteps]=useState(['ESPECIFICACIONES','POTENCIA','PAQUETES','ASPECTO']);
     const {Car}=useCar(props.carId);
     const [formData, setFormData]=useState({
         car:0,
@@ -27,10 +27,11 @@ export default function CustomizationForm(props) {
         else if(step==2)
             return <PackForm carId={props.carId} formData={formData} setFormData={setFormData}/>;
         else if(step==3)
-            return <OutfitForm carId={props.carId}/>;
+            return <OutfitForm carId={props.carId} formData={formData} setFormData={setFormData}/>;
     }
     return (
-      <div className="form row mt-3">
+      <div className="form row mt-1">
+        <FormHeader step={step} FormSteps={FormSteps}></FormHeader>
         <Car carId={props.carId}></Car>
         <div className="form-container col-6">
             <div className="form-header">
@@ -48,7 +49,7 @@ export default function CustomizationForm(props) {
                 <button className="btn btn-primary"
                 onClick={()=>{setStep((currStep)=>currStep+1); if(formData.car==0)setFormData({...formData,car:props.carId})}}
                 disabled={step===FormSteps.length-1}
-                >Continuar
+                >{step>=3?'Comprar':'Continuar'}
                 </button>
             </div>
         </div>
